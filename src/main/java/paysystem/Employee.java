@@ -1,0 +1,29 @@
+package paysystem;
+
+
+public abstract class Employee {
+    private String name;
+    private int id;
+
+    public Employee(String name, int id) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be empty.");
+        }
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID must be positive.");
+        }
+        this.name = name;
+        this.id = id;
+    }
+
+    public String getName() { return name; }
+    public int getId() { return id; }
+
+    public abstract double calculateSalary();
+
+    @Override
+    public String toString() {
+        return "Employee name=" + name + " id=" + id + " salary=" + calculateSalary();
+    }
+}
+
