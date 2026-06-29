@@ -85,12 +85,12 @@ public class PayrollSystem {
                 
                 if("FULL".equals(type)) {
                     double salary = rs.getDouble("monthlySalary");
-                    System.out.printf("%d - %s (Full-Time) Salary: $%.2f%n", id, name, salary);
+                    System.out.printf("%d - %s (Full-Time) Salary: ₹%.2f%n", id, name, salary);
                 } else if("PART".equals(type)) {
                     int hours = rs.getInt("hoursWorked");
                     double rate = rs.getDouble("hourlyRate");
                     double salary = hours * rate;
-                    System.out.printf("%d - %s (Part-Time) Salary: $%.2f (Hours: %d, Rate: $%.2f)%n", 
+                    System.out.printf("%d - %s (Part-Time) Salary: ₹%.2f (Hours: %d, Rate: ₹%.2f)%n", 
                                     id, name, salary, hours, rate);
                 }
             }
@@ -113,9 +113,9 @@ public class PayrollSystem {
             if(rs.next()) {
                 double total = rs.getDouble("total");
                 if(rs.wasNull()) {
-                    System.out.println("\n💰 Total Payroll: $0.00");
+                    System.out.println("\n Total Payroll: ₹0.00");
                 } else {
-                    System.out.printf("\n💰 Total Payroll: $%.2f%n", total);
+                    System.out.printf("\n Total Payroll: ₹%.2f%n", total);
                 }
             }
 
