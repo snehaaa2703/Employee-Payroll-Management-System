@@ -10,7 +10,7 @@ public class PayrollSystem {
         if(emp == null) return;
 
         if(employeeExists(emp.getId())) {
-            System.out.println("❌ Employee ID " + emp.getId() + " already exists.");
+            System.out.println("X Employee ID " + emp.getId() + " already exists.");
             return;
         }
 
@@ -38,7 +38,7 @@ public class PayrollSystem {
             System.out.println("✔ Employee added successfully!");
 
         } catch(SQLException e) {
-            System.out.println("❌ Error adding employee: " + e.getMessage());
+            System.out.println("X Error adding employee: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -46,7 +46,7 @@ public class PayrollSystem {
     // Remove employee
     public void removeEmployee(int id) {
         if(!employeeExists(id)) {
-            System.out.println("❌ Employee ID " + id + " does not exist.");
+            System.out.println("X Employee ID " + id + " does not exist.");
             return;
         }
 
@@ -59,11 +59,11 @@ public class PayrollSystem {
             if(rowsAffected > 0) {
                 System.out.println("✔ Employee removed successfully.");
             } else {
-                System.out.println("❌ Employee not found.");
+                System.out.println("X Employee not found.");
             }
 
         } catch(SQLException e) {
-            System.out.println("❌ Error removing employee: " + e.getMessage());
+            System.out.println("X Error removing employee: " + e.getMessage());
         }
     }
 
@@ -95,10 +95,10 @@ public class PayrollSystem {
                 }
             }
 
-            if(!hasEmp) System.out.println("❌ No employees to display.");
+            if(!hasEmp) System.out.println("X No employees to display.");
 
         } catch(SQLException e) {
-            System.out.println("❌ Error fetching employees: " + e.getMessage());
+            System.out.println("X Error fetching employees: " + e.getMessage());
         }
     }
 
@@ -120,7 +120,7 @@ public class PayrollSystem {
             }
 
         } catch(SQLException e) {
-            System.out.println("❌ Error calculating total payroll: " + e.getMessage());
+            System.out.println("X Error calculating total payroll: " + e.getMessage());
         }
     }
 
@@ -135,7 +135,7 @@ public class PayrollSystem {
             return rs.next();
 
         } catch(SQLException e) {
-            System.out.println("❌ Error checking employee: " + e.getMessage());
+            System.out.println("X Error checking employee: " + e.getMessage());
             return true; // prevent duplicate insertion on error
         }
     }
